@@ -1,0 +1,308 @@
+/*
+ * ====================================
+ * 1. Estilos de Fondo y Layout Principal (SIN SCROLL GENERAL)
+ * ====================================
+ */
+
+.fondo-pagina {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🛑 ENCABEZADO FIJO 🛑 */
+.encabezado-fijo {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* ... (Estilos de .header-left, .ley, .titulo, .logo, etc. se mantienen) ... */
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ley {
+    color: #008080;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.titulo-funcionario-box {
+    display: flex;
+    align-items: center;
+}
+
+.icono-funcionario {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.titulo {
+    font-size: 2rem;
+    color: #004d40;
+    margin: 0;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+/* 🛑 CLAVE: Contenedor principal sin scroll 🛑 */
+.main-content-area-fixed {
+    flex-grow: 1;
+    padding-top: 150px;
+    /* Espacio debajo del encabezado */
+    padding-bottom: 20px;
+    margin: 0 auto;
+    max-width: 1400px;
+    max-height: 650px;
+    width: 100%;
+    overflow-y: hidden;
+    /* Evita el scroll general de la página */
+}
+
+/*
+ * ====================================
+ * 2. Estilos de la Tarjeta Principal y Sub-Cajas
+ * ====================================
+ */
+
+.main-details-card {
+    background-color: rgba(172, 171, 171, 0.9) !important;
+    border: none !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* 🛑 CLAVE: Ajuste de altura dinámica 🛑 */
+    min-height: calc(100vh - 120px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-details-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+
+}
+
+.main-details-card .card-body>.row {
+    flex-grow: 1;
+    /* Permite que la fila de columnas crezca */
+
+}
+
+.titulo-seccion-detalles {
+    margin-top: -60px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 0;
+}
+
+/* 🛑 PROPIEDADES VISUALES SOLICITADAS PARA SUB-CAJAS 🛑 */
+.sub-card {
+    background-color: rgba(255, 255, 255, 1);
+    border: 2px solid #008080;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    transition: transform 0.2s;
+}
+
+.sub-card:hover {
+    transform: translateY(-2px);
+}
+
+/* 🛑 CORRECCIÓN DE ANCHO: Tarjeta de ESTADO (Sub-caja 1) 🛑 */
+.sub-card.info-card {
+    text-align: left;
+    border-radius: 8px;
+    max-height: 200px;
+    /* CLAVE: Eliminar max-width fijo y usar 100% del contenedor Col md=5 */
+    max-width: 300px;
+    gap: 10px;
+    margin-left: -20px;
+}
+
+/* 🛑 NUEVO BLOQUE: Estilos para la Tarjeta de RADICADO (Sub-caja 3) 🛑 */
+/* Anula los límites de .info-card y permite que se adapte al ancho de Col md=7 */
+.sub-card.radicado-card {
+    border: 2px solid #004d40;
+    /* Borde único para diferenciar */
+    background-color: #f7fcfc;
+    max-height: 200px;
+    max-width: 600px;
+    margin-left: 0;
+    /* CLAVE: Quita el desplazamiento lateral */
+    flex-grow: 0;
+}
+
+
+.sub-card p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.sub-card-title {
+    margin-bottom: 15px;
+}
+
+/* 🛑 CORRECCIÓN CRÍTICA DE ANCHO: Tarjeta de ADJUNTOS (Sub-caja 2) 🛑 */
+.sub-card.adjuntos-card {
+    text-align: left;
+    max-height: 200px;
+    /* CLAVE: Eliminar el max-width de 250px para evitar que colapse */
+    max-width: 300px;
+    width: 100%;
+    margin-left: -20px;
+    /* Mantiene el desplazamiento lateral */
+}
+
+
+/* 🛑 CLAVE: Flexbox para estirar Actividades/Adjuntos 🛑 */
+.row>[class*="col-"].d-flex {
+    height: 100%;
+}
+
+/* La caja de Actividades sí necesita crecer para llenar el espacio */
+.sub-card.actividades-card {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #38a169;
+    max-height: 200px;
+    max-width: 600px;
+}
+
+.sub-card.actividades-card .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------------------------------------------- */
+/* 🛑 NUEVO BLOQUE: Scroll para Cajas de Contenido Fijo (Estado y Adjuntos) 🛑 */
+/* ------------------------------------------- */
+
+/* Se aplica a los div contenedores en Estado y Adjuntos */
+.scroll-content-container {
+    max-height: 280px;
+    overflow-y: auto;
+    width: 100%;
+    padding-right: 5px;
+}
+
+/* Ajuste específico para el scroll de adjuntos (para que el botón quede visible) */
+.sub-card.adjuntos-card .scroll-content-container {
+    max-height: 150px;
+}
+
+
+/* ------------------------------------------- */
+/* 🛑 BLOQUE CORREGIDO: Actividades y Hecho (Scroll Dinámico) 🛑 */
+/* ------------------------------------------- */
+
+/* Actividades y Hecho - Contenedores de texto con scroll interno */
+.actividades-contenido,
+.hecho-contenido {
+    background-color: #f0f8ff;
+    border: 1px solid #cceeff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #333;
+    white-space: pre-wrap;
+
+    /* 🛑 CORRECCIÓN CLAVE: Altura dinámica + Scroll 🛑 */
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+
+    margin-bottom: 15px;
+
+    /* Asegura que estos elementos crezcan en su contenedor flex */
+    flex-grow: 1;
+}
+
+/*
+ * ====================================
+ * 3. Estilos de Botones
+ * ====================================
+ */
+
+/* Botón Regresar */
+.btn-regresar {
+    background-color: #004d40;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+   
+}
+
+.btn-regresar:hover {
+    background-color: #00332a;
+}
+
+/* 🛑 Botones de Acción (Vuelven a sus clases originales) 🛑 */
+.btn-adjuntar,
+.btn-descargar,
+.btn-agregar {
+    background-color: #008080;
+    border: none;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.btn-adjuntar:hover,
+.btn-descargar:hover,
+.btn-agregar:hover {
+    background-color: #006666;
+}
+
+/* Ajuste específico para el botón Adjuntar que está a la derecha en su sub-caja */
+.adjuntos-card .d-grid {
+    margin-top: -70px;
+}
+
+/* Frase final */
+.frase {
+  text-align: left;
+  font-style: italic;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 4px black;
+}

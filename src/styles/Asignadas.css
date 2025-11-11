@@ -1,0 +1,376 @@
+/*
+ * ====================================
+ * 1. Estilos de Fondo y Layout Principal 
+ * ====================================
+ */
+
+.fondo-pagina {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    z-index: -1; 
+    background-color: #f0f0f0; 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-wrapper {
+    display: flex;
+    max-width: 1500px; 
+    margin: 20px auto;
+    padding-top: 60px; 
+    gap: 20px; 
+    height: calc(100vh - 100px); 
+    overflow: hidden; 
+    flex-grow: 1; 
+}
+
+.ley {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #008080; 
+    text-decoration: underline;
+    font-size: 0.9rem;
+    z-index: 101; 
+}
+
+/* El botón Regresar ya NO es absoluto, está dentro del Card */
+.btn-regresar {
+    background-color: #008080; 
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s;
+}
+
+.btn-regresar:hover {
+    background-color: #006666;
+}
+
+/*
+ * ====================================
+ * 2. Estilos del Encabezado (Header) 
+ * ====================================
+ */
+
+.encabezado {
+    
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; 
+    
+}
+
+.titulo-funcionario-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono-funcionario {
+    width: 30px;
+    height: 30px;
+}
+
+.titulo {
+    font-size: 2rem; 
+    color: #004d40; 
+    margin: 0;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+
+/*
+ * ====================================
+ * 3. Estilos del Sidebar (Panel Usuario)
+ * ====================================
+ */
+
+.panel-usuario {
+    width: 250px;
+    min-width: 200px; 
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content; 
+    position: sticky;
+    top: 90px; 
+    box-shadow: none !important; 
+    border: none !important; 
+    /* CLAVE: Fondo semi-transparente para el sidebar */
+    background-color: rgba(255, 255, 255, 0.7); 
+    margin: 20px;
+}
+
+.usuario-icono {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.usuario-nombre,
+.usuario-correo,
+.menu-usuario li {
+    color: #004d40; 
+}
+
+.usuario-nombre {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0; 
+}
+
+.usuario-correo {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #333; 
+    margin-bottom: 30px;
+}
+
+.menu-usuario {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-usuario li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 12px; 
+    transition: background-color 0.2s;
+    color: #004d40; 
+}
+
+.menu-usuario li:hover {
+    background-color: rgba(0, 128, 128, 0.2); 
+}
+
+.menu-usuario li.activo {
+    background-color: #008080; 
+    color: white;
+    font-weight: bold;
+}
+
+/*
+ * ====================================
+ * 4. Estilos de la Tarjeta de Contenido Principal (LA CAJA)
+ * ====================================
+ */
+
+.main-content-area {
+    flex-grow: 1; 
+    padding: 0 20px 0 0; 
+    
+}
+
+/* CLAVE: Estilo para la única caja que agrupa todo (título, botón, filtros y tabla) */
+.main-content-card {
+    background-color:  rgba(255, 255, 255, 0.7) !important ; /* Fondo semi-transparente para toda la caja */
+    border: none !important;
+    border-radius: 8px;
+    /* [MODIFICACIÓN CLAVE] Eliminar o reducir 'min-height' para que se ajuste al contenido */
+    /* min-height: 85vh; <--- ELIMINAR O COMENTAR */ 
+    height: fit-content; /* Asegura que la altura se ajuste al contenido de la Card. */
+    padding-bottom: 20px; /* Añade un padding extra si es necesario */
+    max-height: 600px;
+    width: 1200px;
+    margin-top: 90px;
+}
+
+.titulo-seccion-card {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 0; /* Para alinearlo con el botón */
+}
+
+/* Estilos de los filtros y búsqueda */
+.filtros-container {
+    padding-left: 0;
+}
+
+.search-input {
+    max-width: 250px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button,
+.filter-button {
+    background-color: #008080;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover,
+.filter-button:hover {
+    background-color: #006666;
+}
+
+.filter-select {
+    max-width: 150px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Contenedor de la tabla para el scroll horizontal en móviles */
+/* Contenedor de la tabla para el scroll horizontal y vertical */
+
+/* Estilos de la tabla interna */
+.tabla-asignadas {
+    background-color: white; /* La tabla puede ser blanca sólida para mayor legibilidad */
+    border-radius: 8px;
+     
+    border-collapse: separate; 
+    border-spacing: 0;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.tabla-asignadas thead {
+    /* Encabezado de la tabla */
+    background-color: rgba(0, 128, 128, 0.9); 
+    color: white;
+}
+
+.tabla-asignadas th,
+.tabla-asignadas td {
+    padding: 10px 8px;
+    border: none !important;
+    vertical-align: middle;
+    /* La línea divisoria entre filas queda en el td */
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important; 
+    color: #333;
+}
+
+.tabla-asignadas tbody tr:first-child td {
+    border-top: none !important; /* Quitar la línea del primer elemento */
+}
+
+.tabla-asignadas tbody tr:hover {
+    background-color: rgba(0, 128, 128, 0.1);
+}
+
+/* Estilos para las etiquetas de estado (Badges) */
+.estado-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.estado-badge.en-tramite {
+    background-color: orange;
+}
+
+.estado-badge.resuelta {
+    background-color: #38a169;
+}
+
+.estado-badge.vencida {
+    background-color: #e53e3e;
+}
+
+.detalle-link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 5px;
+    color: #008080;
+}
+
+/* Paginación */
+.paginacion-container {
+    color: #004d40;
+    font-size: 0.9rem;
+}
+
+.btn-paginacion {
+    background-color: #008080;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-paginacion:hover {
+    background-color: #006666;
+}
+
+/*
+ * ====================================
+ * 5. Estilos del Footer
+ * ====================================
+ */
+
+.frase {
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 2rem;
+    color: white;
+    
+    font-style: italic;
+    font-weight: 500;
+    position: fixed;
+    bottom: -10px;
+    margin-left: 10px;
+    z-index: 1;
+}
+
+/*
+ * ====================================
+ * Media Queries
+ * ====================================
+ */
+
+@media (max-width: 992px) {
+    .layout-wrapper {
+        flex-direction: column;
+        height: auto; 
+        overflow: visible; 
+        padding-top: 100px;
+        gap: 10px;
+    }
+
+    .panel-usuario {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        top: auto; 
+    }
+    
+    .main-content-area {
+        padding: 0 10px;
+    }
+
+    .main-content-card {
+        min-height: auto;
+    }
+}
