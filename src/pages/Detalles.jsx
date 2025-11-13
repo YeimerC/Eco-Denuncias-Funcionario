@@ -85,7 +85,7 @@ const Detalles = () => {
                                 {/* Título "Detalles" y Botón "Regresar" */}
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <h2 className="titulo-seccion-detalles">Detalles</h2>
-                                    <Button className="btn-regresar" onClick={handleRegresar}>Regresar</Button>
+                                    <a href="/asignadas"><Button type="button">Regresar</Button></a>
                                 </div>
 
                                 {/* Contenedores de 2 columnas para el contenido principal */}
@@ -96,8 +96,8 @@ const Detalles = () => {
                                         {/* Sub-caja 1: Estado de la denuncia */}
                                         <Card className="sub-card info-card mb-4">
                                             {/* 🛑 Contenedor de scroll para contenido fijo 🛑 */}
-                                            <div className="scroll-content-container">
-                                                <Card.Body>
+                                            <div >
+                                                
                                                     <h5 className="sub-card-title">Estado</h5>
                                                     <p>{renderEstadoBadge(denunciaDetalle.estado)}</p>
                                                     <h5 className="sub-card-title mt-3">Denunciante</h5>
@@ -109,7 +109,7 @@ const Detalles = () => {
                                                     <p className="ultima-actualizacion">
                                                         Última actualización: {denunciaDetalle.ultimaActualizacion}
                                                     </p>
-                                                </Card.Body>
+                                                
                                             </div>
                                         </Card>
 
@@ -142,13 +142,13 @@ const Detalles = () => {
                                     <Col md={7} className="d-flex flex-column">
                                         {/* Sub-caja 3: Detalles del Radicado */}
                                         <Card className="sub-card info-card radicado-card mb-4">
-                                            <Card.Body>
-                                                <div className="d-flex justify-content-between align-items-start">
+                                        
+                                                <div className="d-flex align-items-start justify-content-start">
                                                     <div>
                                                         <h5 className="sub-card-title">Radicado</h5>
-                                                        <p>Fecha: {denunciaDetalle.fechaRadicado}</p>
-                                                        <p>Delito: {denunciaDetalle.delito}</p>
-                                                        <p>Lugar de los Hechos: {denunciaDetalle.lugarHechos}</p>
+                                                        <p className="radicado-info">Fecha: {denunciaDetalle.fechaRadicado}</p>
+                                                        <p className="radicado-info">Delito: {denunciaDetalle.delito}</p>
+                                                        <p className="radicado-info">Lugar de los Hechos: {denunciaDetalle.lugarHechos}</p>
                                                     </div>
                                                     <span className="radicado-numero">{denunciaDetalle.radicado}</span>
                                                 </div>
@@ -157,12 +157,12 @@ const Detalles = () => {
                                                 <div className="hecho-contenido">
                                                     <p>{denunciaDetalle.hecho}</p>
                                                 </div>
-                                            </Card.Body>
+                                            
                                         </Card>
 
                                         {/* Sub-caja 4: Actividades Realizadas */}
                                         <Card className="sub-card actividades-card flex-grow-1">
-                                            <Card.Body className="d-flex flex-column">
+                                            
                                                 <h5 className="sub-card-title">Actividades Realizadas</h5>
                                                 {/* .actividades-contenido ya tiene scroll en CSS */}
                                                 <div className="actividades-contenido flex-grow-1">
@@ -173,7 +173,7 @@ const Detalles = () => {
                                                     <Button className="btn-descargar me-2" onClick={handleDescargarFormato}>Formato de Descarga</Button>
                                                     <Button className="btn-agregar" onClick={handleAgregarActividad}>Agregar</Button>
                                                 </div>
-                                            </Card.Body>
+                                            
                                         </Card>
                                     </Col>
                                 </Row>

@@ -166,16 +166,17 @@
 .boton-siguiente {
   text-align: right;
   margin-top: 12px;
+  margin-right: -640px;
 }
 
 div.boton-siguiente button {
   background-color: #ccc  ;
-  color: white;
   border: none;
   padding: 2px 8px;
   border-radius: 8px;
   cursor: pointer;
   margin-top: -80px !important;
+
 }
 
 /* Frase final */

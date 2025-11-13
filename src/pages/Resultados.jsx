@@ -87,7 +87,9 @@ const Resultados = () => {
             </label>
 
             <div className="boton-siguiente">
-              <button type="button">Siguiente</button>
+              <a href="/observaciones">
+                <button type="button">Siguiente</button>
+              </a>
             </div>
           </form>
         </div>

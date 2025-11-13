@@ -6,7 +6,7 @@ import AppRouter from "./route/AppRoute.jsx"
 
 function App() {
 
-  return <appRoute />;
+  return <AppRoute />;
 }
 
 export default App;

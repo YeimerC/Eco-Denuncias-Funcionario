@@ -48,12 +48,14 @@
   padding: 20px 40px;
 }
 .panel-usuario {
+  position: absolute;
   background-color: white;
   border-radius: 20px;
   width: 220px;
   padding: 20px;
-  margin-right: 30px;
+  margin-left: -30px !important;
   text-align: center;
+  z-index: 10;
 }
 .usuario-icono {
   font-size: 3rem;
@@ -80,15 +82,17 @@
   margin-bottom: 20px;
 }
 .tarjeta {
-  width: 210px;
-  max-height: 80px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+  width: 180px;             /* o el tamaño que necesites */
+  max-height: 60px;            /* alto fijo o adaptable */
+  overflow: hidden;         /* evita que el contenido se salga */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* centra verticalmente el contenido */
+  align-items: center;      /* centra horizontalmente */
+  padding: 10px;
+  box-sizing: border-box;   /* incluye el padding en el tamaño total */
 }
+
 .tarjeta:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
@@ -113,12 +117,16 @@
 /* Caja de gráficos y notificaciones */
 .contenedor-graficos {
   background-color: rgb(184, 183, 183);
-  padding: 25px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  min-width: 1150px;
+  max-height: 500px;
+  height: 500px;
+  margin-top: 80px;
 }
 
 /* Gráficos */
@@ -128,33 +136,68 @@
   justify-content: center;
   align-items: stretch;
   gap: 1px;
-  width: 100%;
-  margin-top: -20px;
+  width: 90%;
+  margin-top: 20px;
 }
 
 .grafico {
-  flex: 1 1 30%;
-  min-width: 120px;
-  max-width: 260px;
-  max-height: 200px;
-  background-color: transparent !important;
+  max-width:  300%;        /* puedes cambiarlo por % si quieres que se adapte */
+  max-height: 250px !important;       /* controla la altura del gráfico */
+  background: #fff;
   border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  
-  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;  /* importante para que el gráfico se ajuste dentro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.grafico-estado { height: 80px; width: 230px; margin-left: -120px; top: -10px;}
-.grafico-asignacion { height: 80px; width: 260px; margin-left: -120px; top: -10px;}
-.grafico-cumplimiento { height: 80px; width: 230px; margin-left: 300px; margin-top: -225px; top: -10px}
+
+
+
+
+.grafico-estado { height: 80px ;
+     width: 320px; 
+     margin-left: -170px; 
+     top: -10px;}
+
+
+
+.grafico-asignacion {
+  height: 290px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  overflow: hidden;
+  margin-left: -180px;
+  width: 480px;
+  margin-top: -8px;
+}
+
+.grafico-asignacion .recharts-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+
+
+.grafico-cumplimiento { height: 290px !important; 
+    width: 320px; 
+    margin-left: 480px; 
+    margin-top: -225px; 
+    top: -60px}
 
 .grafico canvas,
 .grafico svg {
   width: 100% !important;
   height: 100% !important;
-  object-fit: contain;
-  margin-top: -10px;
+  object-fit: contain; /* hace que se ajuste sin deformarse */
 }
+
+
+
 
 /* Gauge */
 .gauge-wrapper {
@@ -184,6 +227,18 @@
   font-weight: bold;
   color: #004aad;
 }
+
+.titulo-notificaciones {
+  text-align: center; /* centra horizontalmente */
+  margin-top: -90px;   /* mueve hacia abajo */
+  margin-left: -600px;  /* mueve hacia la derecha */
+  color: #020304;     /* color opcional */
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px;
+  
+}
+
 
 /* Notificaciones */
 .notificaciones {
